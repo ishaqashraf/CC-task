@@ -1,5 +1,5 @@
 {
-  "name": "rnbiolerplate",
+  "name": "task",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,7 +10,10 @@
     "@babel/runtime": "^7.0.0-beta.55",
     "react": "16.5.0",
     "react-native": "0.57.1",
-    "react-native-router-flux": "^4.0.4",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-native-modal-datetime-picker": "^6.0.0",
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^3.0.8",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"

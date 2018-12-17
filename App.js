@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Routes from './src/components/routes';
 import reducers from './src/reducers';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import Routes from './src/components/navigation/appNavigator';
 
 
 export default class App extends Component {

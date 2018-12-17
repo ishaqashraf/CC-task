@@ -1,32 +1,91 @@
 import React, { Component } from 'react';
-import { View,Text } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
+import Input from '../common/input';
+import Button from '../common/button';
+import Logo from '../common/logo';
+import { nameChanged, loginUser } from '../../actions';
+
 import { connect } from 'react-redux';
-import { emailChanged, passwordChanged, loginUser } from '../../actions';
 
 
 class Login extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.onChangeText = this.onChangeText.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
-    componentWillMount(){
-        // this.props.loginUser();
+
+    componentWillMount() {
+        // AsyncStorage.removeItem("user")
+        // AsyncStorage.getItem("user").then((value) => {
+        //     console.warn("value session",value)
+        // }).done();
+    }
+
+    onChangeText(text) {
+        this.props.nameChanged(text);
+    }
+
+    onSubmit() {
+        const { name } = this.props;
+        if (name == "") {
+            alert("Please Enter Username")
+        } else {
+            this.props.loginUser(name);
+            this.props.navigation.navigate('Home');
+        }
+
     }
 
     render() {
         return (
-            <View>
-            <Text>{this.props.text}</Text>
+            <View style={styles.mainContainer}>
+                <View style={styles.logoContainer}>
+                    <Logo />
+                </View>
+                <View style={styles.inputContainer}>
+                    <Input
+                        placeholder="Name"
+                        borderColor="#EEEEEE"
+                        height={50}
+                        onChangeText={this.onChangeText}
+                        value={this.props.name}
+                    />
+                    <Button
+                        name="Login"
+                        action={this.onSubmit}
+                        background="#4CD964"
+                        color="#fff"
+                        borderColor="transparent"
+                    />
+                </View>
             </View>
         );
     }
 }
 
-const mapStateToProps = ({ auth }) => {
-    const { email, password, error, loading, user,text } = auth;
+const styles = {
+    mainContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'space-between',
+    },
+    logoContainer: {
+        alignItems: 'center',
+        marginTop: 200
+    },
+    inputContainer: {
+        alignItems: 'center',
+        margin: 10
+    }
+}
 
-    return { email, password, error, loading ,user,text }
+const mapStateToProps = ({ auth }) => {
+    const { name, user, loading, error } = auth;
+    return { name, user, loading, error };
 };
 
 export default connect(mapStateToProps, {
-    emailChanged, passwordChanged, loginUser
+    nameChanged,
+    loginUser
 })(Login);
