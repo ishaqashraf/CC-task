@@ -25,7 +25,7 @@ class Profile extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-            <Header headerText={this.props.user} />
+            <Header headerText={`Hello, ${this.props.user}`} />
                 <View style={styles.contentContainer}>
                     <Button
                         name="Logout"

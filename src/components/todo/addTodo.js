@@ -48,7 +48,7 @@ class AddTodo extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-            <Header headerText="Add Todo" />
+            <Header headerText="Add" />
                 <View style={styles.contentContainer}>
                     <Input
                         placeholder="When do you need to do?"
