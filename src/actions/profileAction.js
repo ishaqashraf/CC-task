@@ -15,7 +15,7 @@ export const getUser = () => {
         try {
             AsyncStorage.getItem("user")
                 .then((value) => {
-                    getUserSuccess(dispatch, value);
+                    getUserSuccess(dispatch, JSON.parse(value));
                 })
         } catch (error) {
             getUserFail(dispatch, error);
@@ -27,7 +27,7 @@ export const logout = () => {
     return (dispatch) => {
         dispatch({ type: LOGOUT });
         try {
-            AsyncStorage.removeItem("user");
+            AsyncStorage.clear();
             logoutSuccess(dispatch)
         } catch (error) {
             logoutFail(dispatch, error);

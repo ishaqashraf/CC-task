@@ -56,7 +56,7 @@ const AppNavigator = createSwitchNavigator(
         Auth: AuthStack,
     },
     {
-        initialRouteName: "App",
+        initialRouteName: "Auth",
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#4CD964',

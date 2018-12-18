@@ -7,6 +7,7 @@ import Button from '../common/button';
 import DatePicker from '../common/datePicker';
 
 import { connect } from 'react-redux';
+import Header from '../common/header';
 
 
 class AddTodo extends Component {
@@ -38,15 +39,16 @@ class AddTodo extends Component {
     onSubmit() {
         const { date, color } = this.state;
         const { todoName } = this.props;
-        console.warn("submit")
         this.props.onSaveItem(todoName, date, color);
         this.props.navigation.navigate('Home');
+        this.setState({ date:'',color:'' })
 
     }
 
     render() {
         return (
             <View style={styles.mainContainer}>
+            <Header headerText="Add Todo" />
                 <View style={styles.contentContainer}>
                     <Input
                         placeholder="When do you need to do?"

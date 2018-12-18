@@ -4,6 +4,7 @@ import { getUser, logout } from '../../actions';
 
 import { connect } from 'react-redux';
 import Button from '../common/button';
+import Header from '../common/header';
 
 
 class Profile extends Component {
@@ -24,8 +25,8 @@ class Profile extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
+            <Header headerText={this.props.user} />
                 <View style={styles.contentContainer}>
-                    <Text>{this.props.user}</Text>
                     <Button
                         name="Logout"
                         action={this.removeData}

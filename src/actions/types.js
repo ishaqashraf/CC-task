@@ -20,5 +20,13 @@ export const ADD_TODO_FAIL = 'add_todo_fail';
 export const GET_TODOS = 'get_todos';
 export const GET_TODOS_SUCCESS = 'get_todos_success';
 export const GET_TODOS_FAIL = 'get_todos_fail';
+export const DELETE_TODO = 'delete_todo';
+export const DELETE_TODO_SUCCESS = 'delete_todo_success';
+export const DELETE_TODO_FAIL = 'delete_todo_fail';
+export const COMPLETE_TODO = 'complete_todo';
+export const COMPLETE_TODO_SUCCESS = 'complete_todo_success';
+export const COMPLETE_TODO_FAIL = 'complete_todo_fail';
+
+
 
 

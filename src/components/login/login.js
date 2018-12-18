@@ -16,7 +16,13 @@ class Login extends Component {
     }
 
     componentWillMount() {
-        // AsyncStorage.removeItem("user")
+        AsyncStorage.getItem("user")
+        .then((user) => {
+            if(user){
+                this.props.navigation.navigate('App');
+            }
+        })
+        // AsyncStorage.clear();
         // AsyncStorage.getItem("user").then((value) => {
         //     console.warn("value session",value)
         // }).done();

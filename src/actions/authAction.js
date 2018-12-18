@@ -18,7 +18,7 @@ export const nameChanged = (text) => {
 export const loginUser = (name) => {
     return (dispatch) => {
         dispatch({ type: LOGIN_USER });
-        AsyncStorage.setItem("user", name)
+        AsyncStorage.setItem("user",JSON.stringify(name))
             .then(user => loginUserSuccess(dispatch, user))
             .catch(err => loginuserFail(dispatch, err))
     };
