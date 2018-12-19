@@ -21,10 +21,10 @@ class List extends Component {
     }
 
     fetchDate(date) {
+        const todoDate = new Date(date)
         const today = moment();
         const yesterday = moment().subtract(1, 'day');
         const tomorrow = moment().add(1, 'day');
-        const todoDate = moment(date);
         if (moment(todoDate).isSame(today, 'day')) {
             var result = "Due today"
         }

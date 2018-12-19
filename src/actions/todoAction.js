@@ -48,7 +48,7 @@ export const getTodos = () => {
                 .then((todo) => JSON.parse(todo))
                 .then((result) => {
                     if (result == null) {
-                        let todoObject = [{ key: "1", name: 'Build a React Native app', date: 'Due tomorrow', color: '#4A90E2', completed: 0 }]
+                        let todoObject = [{ key: "1", name: 'Build a React Native app', date: new Date(), color: '#4A90E2', completed: 0 }]
                         AsyncStorage.setItem("todos", JSON.stringify(todoObject))
                     }
                     AsyncStorage.getItem("todos")
